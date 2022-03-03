@@ -1,0 +1,28 @@
+IMPORTANT: using this script will incur money loss accoring to the time your spot instances will be running.
+MAKE SURE YOU UNDERSTAND THIS, DO NOT USE CARDS WITH MONEY ON IT IF YOU ARE NOT READY TO LOSE THEM
+
+I assume you have basic understanding about running docker containers and using terminal and general IT-expertise if you are reading this.
+
+This is manual to ghetto-loic implementation using the bombardier stress-test tool.
+More info about tool here https://pkg.go.dev/github.com/codesenberg/bombardier?utm_source=godoc 
+Ghetto-loic uses  'alpine/bombarideri' docker image to "stress-test" targets.
+
+
+What you need to run this:
+- AWS account
+- key pair to connect over SSH (optional)
+- AWS security group to connect to instance over SSH (optional)
+- installed aws-cli v2
+- run aws configure and supply details, you can get them in your AWS account, google how to do it.
+- make sure to 'chmod +x ebash.sh' file to be able to run it
+- ./ebash.sh kremlin.ru fsb.ru sber.ru
+
+How it works (so far):
+- run ebash.sh script with up to 3 targets domain names/IPs (it was tested with 3 targets, you can use more)
+- it creates AWS EC2 Spot requests for 4(four) t3.medium servers with base Ubuntu 20 AMI (depends on the region) in Stockholm region eu-north-1a (it depends on the region you register your aws-cli tool), with price of 0.04 USD and termination protection disabled
+- servers will automatically install docker.io and should start stress-testing targets for 1 hour
+- in 3900 seconds servers will self-terminate
+- instructions are encoded in base64 and sent to EC2 instances with UserData
+- aws-cli pages whole info about request to terminal, just press 'q' to close it
+
+In case of any questions review ebash.sh, specification and spec files.
