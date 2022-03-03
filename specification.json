@@ -1,0 +1,7 @@
+{
+       "ImageId":"ami-092cce4a19b438926", 
+       "InstanceType":"t3.medium", 
+       "KeyName":"dominic-fra", 
+       "SecurityGroupIds": [ "sg-0fa29d6889c5928f3","sg-0bcec1cc5f67c52c3" ],
+	   "UserData":"IyEvYmluL2Jhc2gKYXB0IHVwZGF0ZSAKYXB0IGluc3RhbGwgZG9ja2VyLmlvIC15cSAKZG9ja2VyIHJ1biAtaXQgLWQgLS1ybSBhbHBpbmUvYm9tYmFyZGllciAtYyAxMDAwMCAtZCAzNjAwcyAtbCBzYmVyLnJ1CmRvY2tlciBydW4gLWl0IC1kIC0tcm0gYWxwaW5lL2JvbWJhcmRpZXIgLWMgMTAwMDAgLWQgMzYwMHMgLWwgaHR0cHM6Ly9hY3M3LnNicmYucnUKZG9ja2VyIHJ1biAtaXQgLWQgLS1ybSBhbHBpbmUvYm9tYmFyZGllciAtYyAxMDAwMCAtZCAzNjAwcyAtbCBodHRwczovLzNkc2VjLnNiZXJiYW5rLnJ1L21wb3J0YWwzL2F1dGgvbG9naW4Kc2xlZXAgNTAwOyBzaHV0ZG93biAtaCBub3cK" 
+}
