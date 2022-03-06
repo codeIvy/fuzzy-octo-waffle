@@ -4,6 +4,16 @@ MAKE SURE YOU UNDERSTAND THIS, DO NOT USE CARDS WITH MONEY ON THEM IF YOU ARE NO
 !!IMPORTANT!!: this repo is purely for educational purposes only. In some jurisdictions use of this script could be illegal.
 Make sure that you understand this.
 
+NOTE: for users on Mac edit ebash.sh script and change `base 64 -w` to `base64`
+How it works (so far):
+- run ebash.sh script with up to 3 targets domain names/IPs (it was tested with 3 targets, you can use more)
+- it creates AWS EC2 Spot requests for 4(four) t3.medium servers with base Ubuntu 20 AMI (depends on the region) in Stockholm region eu-north-1a (it depends on the region you register your aws-cli tool), with price of 0.04 USD and termination protection disabled
+- servers will automatically install docker.io and should start stress-testing targets for 1 hour
+- in 3900 seconds servers will self-terminate
+- instructions are encoded in base64 and sent to EC2 instances with UserData
+- aws-cli pages whole info about successfull request to terminal, just press 'q' to close it
+
+
 I assume you have basic understanding about running docker containers and using terminal and 
 general IT-expertise if you are reading this. Some parts are vague on exact steps, I simply don't have time to 
 explain everything in details.
@@ -24,14 +34,6 @@ What you need to run this:
 - find AMI ID for Ubuntu 20 in your AWS region
 - ./ebash.sh target
 
-NOTE: for users on Mac edit ebash.sh script and change `base 64 -w` to `base64`
-How it works (so far):
-- run ebash.sh script with up to 3 targets domain names/IPs (it was tested with 3 targets, you can use more)
-- it creates AWS EC2 Spot requests for 4(four) t3.medium servers with base Ubuntu 20 AMI (depends on the region) in Stockholm region eu-north-1a (it depends on the region you register your aws-cli tool), with price of 0.04 USD and termination protection disabled
-- servers will automatically install docker.io and should start stress-testing targets for 1 hour
-- in 3900 seconds servers will self-terminate
-- instructions are encoded in base64 and sent to EC2 instances with UserData
-- aws-cli pages whole info about successfull request to terminal, just press 'q' to close it
 
 In case of any questions review ebash.sh, specification and spec files. You can view payload file to see what exactly your 
 instances will be doing.
